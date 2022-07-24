@@ -1,0 +1,9 @@
+# Training 
+
+This directory contains the scripts to load the dataset and train the model:
+- **load_dataset_mitdb.py**: This script can be used to load the mitdb dataset from the online database and store it in obj/data.pkl
+- **split_train_test.py**: This script can be used to split the loaded dataset into a training and testing datasets (it applies some balancing to the dataset). The resultant datasets will be stored in obj/x_train.pkl obj/x_test.pkl obj/y_train.pkl obj/test.pkl. X contains the signals and Y contains their classes. The number of training signals is 44048 (80%) and the number of test signals is 10918 (20%). The two sets does not intersect
+- **train_neurons_nopca.py**: Train the model to find the best number of neurons in the hidden layer without applying pca reduction to the input vector (i.e. keep the size of the input 180). The results of the training will be stored in ../results/variable_neurons/nopca/
+- **train_neurons_withpca.py**: Train the model to find the best number of neurons in the hidden layer while applying pca reduction to the input vector from 180 to N (N is set to 16, it can be changed by changing its value in the global variables). The results of the training will be stored in ../results/variable_neurons/withpca/N_dimension/
+- **train_dimensions.py**: Train the model to find the best pca reduced dimension of the input vector while setting the number of neurons in the hidden layer to N (N is set to 100 by default, it can be changed by changing its value in the global variables). The results of the training will be stored in ../results/variable_dim/N_neurons/
+- **evaluate_one_model.py**: This script takes in its arguments the parameters of a certain model (hidden weigths, hidden biases, output weigths, output biases) and recomputes its accuracy confusion matrix and calculates its precision.
